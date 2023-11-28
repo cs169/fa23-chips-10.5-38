@@ -1,0 +1,10 @@
+require 'rails_helper'
+
+#usually start on home page --> given i'm on home page
+#if i click on representatives page
+
+describe 'civic api to representative param' do
+  Given I am on the homepage
+  And I click on Oregon
+  And I click on Jackson county 
+  
