@@ -14,7 +14,6 @@ class Representative < ApplicationRecord
       city = 'N/A'
       zip = 'N/A'
       state = 'N/A'
-      photo = 'N/A'
 
       rep_info.offices.each do |office|
         if office.official_indices.include? index
@@ -28,10 +27,9 @@ class Representative < ApplicationRecord
         city = official.address[0].city
         zip = official.address[0].zip
         state = official.address[0].state 
-        photo = official.photo_url
       end
 
-      rep = Representative.find_or_create_by!({name: official.name, ocdid: ocdid_temp, title: title_temp, street: street, city: city, state: state, zip: zip, party: official.party, photo: photo})
+      rep = Representative.find_or_create_by!({name: official.name, ocdid: ocdid_temp, title: title_temp, street: street, city: city, state: state, zip: zip, party: official.party, photo: official.photo_url})
       reps.push(rep)
     end
     reps
