@@ -29,7 +29,13 @@ class Representative < ApplicationRecord
         state = official.address[0].state 
       end
 
-      rep = Representative.find_or_create_by!({name: official.name, ocdid: ocdid_temp, title: title_temp, street: street, city: city, state: state, zip: zip, party: official.party, photo: official.photo_url})
+      photo = ''
+
+      if !official.photo_url.nil?
+        photo = official.photo_url
+      end
+
+      rep = Representative.find_or_create_by!({name: official.name, ocdid: ocdid_temp, title: title_temp, street: street, city: city, state: state, zip: zip, party: official.party, photo: photo})
       reps.push(rep)
     end
     reps
