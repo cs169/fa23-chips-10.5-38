@@ -7,4 +7,3 @@ describe 'civic api to representative param' do
   Given I am on the homepage
   And I click on Oregon
   And I click on Jackson county 
-  

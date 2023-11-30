@@ -13,3 +13,6 @@ class SearchController < ApplicationController
     render 'representatives/search'
   end
 end
+
+
+## rail generate migration
