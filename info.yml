@@ -1,0 +1,24 @@
+project:
+  name: 'CS169-fa23-38'
+  owner: 'fa23'
+  teamId: '38'
+  identities: {}
+  notifications:
+    email: 'marynat@berkeley.edu'
+  members:
+    member1:
+      name: 'Maryna'
+      surname: 'Terentieva' 
+      githubUsername: 'greegro'
+    member2:
+      name: 'Amanda'
+      surname: 'Sayaseng' 
+      githubUsername: 'asayaseng'
+    member3:
+      name: 'Jackson'
+      surname: 'Xu' 
+      githubUsername: 'JacksonXu33'
+    member4:
+      name: 'Jake'
+      surname: 'Clayton' 
+      githubUsername: 'XXXXXXXXXXX'
