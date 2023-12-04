@@ -14,5 +14,4 @@ class SearchController < ApplicationController
   end
 end
 
-
 ## rail generate migration
