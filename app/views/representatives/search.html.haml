@@ -6,31 +6,16 @@
                     %caption Table of Representatives
                     %thead.thead-dark
                         %tr
-                            %th Photo
                             %th Name
                             %th Office
-                            %th Address
-                            %th City
-                            %th State
-                            %th Zip
-                            %th Party
-                            %th Article
-                            %th Profile
+                            %th Links
                     %tbody
                         - @representatives.each_with_index do |rep, _index|
                             %tr
-                                %td= rep.photo.present? ? image_tag(rep.photo) : 'No photo'
                                 %td= rep.name
                                 %td= rep.title
-                                %td= rep.street
-                                %td= rep.city
-                                %td= rep.state
-                                %td= rep.zip
-                                %td= rep.party
                                 %td
                                     = link_to representative_news_items_path(rep.id), class: 'btn btn-primary' do
                                         %i.fas.fa-newspaper
                                         News Articles
-                                %td
-                                    = link_to 'Profile', representative_path(rep), class: 'btn btn-secondary'
-                                    
+                                    = link_to 'Profile', representative_path(rep), class: 'btn btn-info'
