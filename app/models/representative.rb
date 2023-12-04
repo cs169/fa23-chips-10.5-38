@@ -31,7 +31,8 @@ class Representative < ApplicationRecord
 
     photo_u = official.photo_url unless official.photo_url.nil?
 
-    Representative.find_or_create_by!({ name: official.name, ocdid: ocdid_temp, title: title_temp, street: street, city: city, state: state, zip: zip, party: official.party, photo: photo_u })
+    Representative.find_or_create_by!({ name: official.name, ocdid: ocdid_temp, title: title_temp, street: street,
+city: city, state: state, zip: zip, party: official.party, photo: photo_u })
   end
 
   def self.get_office(rep_info, index)

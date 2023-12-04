@@ -9,10 +9,10 @@ class RepresentativesController < ApplicationController
   # TODO
   def show
     @representative = Representative.find_by(id: params[:id])
-    if !@representative.nil?
-      render :show
+    if @representative.nil?
+      redirect_to representatives_path, alert: 'no one found'
     else
-      redirect_to representatives_path, alert: "no one found"
+      render :show
     end
   end
 end
