@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 Given('there is a representative with name {string} and other details') do |name|
-  representative = Representative.create!(name: name, ocdid: 'ocd123', title: 'Representative', party: 'Example Party')
+  Representative.create!(name: name, ocdid: 'ocd123', title: 'Representative', party: 'Example Party')
 end
 
 When('I visit the representative details page') do
-  representative = Representative.last
+  # representative = Representative.last
   # What's the path for representative?
   # visit search_representatives_path(representative)
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Run with < rspec spec/controllers/representative_spec.rb >
 
 require 'rails_helper'
