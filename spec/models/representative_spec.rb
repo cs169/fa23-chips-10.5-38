@@ -1,3 +1,5 @@
+# Run with < rspec spec/models/representative_spec.rb >
+
 require 'rails_helper'
 
 RSpec.describe Representative, type: :model do
