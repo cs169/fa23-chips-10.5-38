@@ -6,6 +6,7 @@ class RepresentativesController < ApplicationController
   end
 
   # Added this in to show profile page of representative
+  # TODO
   def show
     @representative = Representative.find_by(id: params[:id])
     if @representative.nil?
