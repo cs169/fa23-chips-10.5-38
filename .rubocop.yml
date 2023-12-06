@@ -30,11 +30,6 @@ AllCops:
         - lib/tasks/cucumber.rake
         - node_modules/**/*
         - vendor/**/*
-        # Added tests here
-        - features/step_definitions/representative_steps.rb
-        - features/representative.feature
-        - spec/controllers/**/*
-        - spec/models/**/*
 
 Layout/EndOfLine:
     EnforcedStyle: lf
