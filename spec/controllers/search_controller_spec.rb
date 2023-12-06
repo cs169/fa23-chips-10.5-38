@@ -1,0 +1,1 @@
+# Run with < rspec spec/controllers/search_controller_spec.rb >

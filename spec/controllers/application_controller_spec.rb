@@ -1,0 +1,1 @@
+# Run with < rspec spec/controllers/application_controller_spec.rb >

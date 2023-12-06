@@ -1,0 +1,1 @@
+# Run with < rspec spec/controllers/login_controller_spec.rb >

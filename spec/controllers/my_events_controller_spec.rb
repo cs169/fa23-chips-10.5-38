@@ -1,0 +1,1 @@
+# Run with < rspec spec/controllers/my_events_controller_spec.rb >

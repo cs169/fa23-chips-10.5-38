@@ -1,0 +1,1 @@
+# Run with < rspec spec/controllers/user_controller_spec.rb >

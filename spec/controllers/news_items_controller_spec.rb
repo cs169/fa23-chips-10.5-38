@@ -1,0 +1,1 @@
+# Run with < rspec spec/controllers/news_items_controller_spec.rb >

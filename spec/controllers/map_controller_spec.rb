@@ -1,0 +1,1 @@
+# Run with < rspec spec/controllers/map_controller_spec.rb >
