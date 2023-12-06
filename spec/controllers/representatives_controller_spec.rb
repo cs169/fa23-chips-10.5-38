@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Run with < rspec spec/controllers/representative_spec.rb >
+# Run with < rspec spec/controllers/representatives_controller_spec.rb >
 
 require 'rails_helper'
 
