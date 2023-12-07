@@ -4,17 +4,23 @@
 
 require 'rails_helper'
 
+FAKE_CLASS = 'fake_class'
+
 RSpec.describe MyNewsItemsController, type: :controller do
   let(:representative) { instance_double(Representative, id: 1) }
   let(:news_item) { instance_double(NewsItem, id: 1) }
 
   describe 'POST #create' do
     context 'with valid parameters' do
+      before do
+        @news_item_params = { title: 'News Title', description: 'News Description',
+          representative_id: representative.id }
+        allow(NewsItem).to receive(:new).with(@news_item_params) \
+                                        .and_return(instance_double(FAKE_CLASS, save: true, id: 1))
+      end
+
       it 'creates a new news item' do
-        news_item_params = { title: 'News Title', description: 'News Description',
-representative_id: representative.id }
-        allow(NewsItem).to receive(:new).with(news_item_params).and_return(double(save: true, id: 1))
-        post :create, params: { representative_id: representative.id, news_item: news_item_params }
+        post :create, params: { representative_id: representative.id, news_item: @news_item_params }
         expect(response).to be_redirect
       end
     end

@@ -4,9 +4,11 @@
 
 require 'rails_helper'
 
+FAKE_CLASS = 'fake_class'
+
 RSpec.describe NewsItem, type: :model do
   describe '.find_for' do
-    let(:representative) { double('Representative', id: 1) }
+    let(:representative) { instance_double(Representative, 'Representative', id: 1) }
     let(:news_item) { instance_double(described_class) }
 
     context 'when a news item exists for the representative' do
