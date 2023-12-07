@@ -1,0 +1,33 @@
+.container-fluid
+    .row
+        .col-md-4.offset-md-2
+            .table-responsive-md.pt-5
+                %table.table.table-striped.table-hover#events
+                    %caption Table of Representatives
+                    %thead.thead-dark
+                        %tr
+                            %th Name
+                            %th Party
+                            %th Total From Individuals
+                            %th Total From Pacs
+                            %th Total Contributions
+                            %th Candidate Loans
+                            %th Total Disbursements
+                            %th Begin Cash
+                            %th End_cash
+                            %th Total Refunds
+                            %th Debts Owed
+                    %tbody
+                        - @camp_res.each do |c|
+                            %tr
+                                %td= c['name']
+                                %td= c['party']
+                                %td= c['total_from_individuals']
+                                %td= c['total_from_pacs']
+                                %td= c['total_contributions']
+                                %td= c['candidate_loans']
+                                %td= c['total_disbursements']
+                                %td= c['begin_cash']
+                                %td= c['end_cash']
+                                %td= c['total_refunds']
+                                %td= c['debts_owed']

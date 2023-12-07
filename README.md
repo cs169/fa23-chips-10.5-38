@@ -11,7 +11,7 @@ political events in their area as well as aggregate, share and view news items i
 
 [![All Specs](https://github.com/cs169/fa23-chips-10.5-38/actions/workflows/specs.yml/badge.svg)](https://github.com/cs169/fa23-chips-10.5-38/actions) 
 
-[![codecov](https://codecov.io/github/cs169/fa23-chips-10.5-38/graph/badge.svg?token=qRpZnZN3QQ)](https://codecov.io/github/cs169/fa23-chips-10.5-38/tree/master)
+[![codecov](https://codecov.io/github/cs169/fa23-chips-10.5-38/graph/badge.svg?token=qRpZnZN3QQ)](https://codecov.io/github/cs169/fa23-chips-10.5-38)
 
 ### Getting Setup Locally
 
