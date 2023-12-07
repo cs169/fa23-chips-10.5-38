@@ -14,7 +14,7 @@ RSpec.describe EventsController, type: :controller do
       end
 
       it 'assigns the filtered events to @events' do
-        filtered_events = double('Filtered Events')
+        filtered_events = [instance_double(Event), instance_double(Event)]
         allow(controller).to receive(:filter_events).and_return(filtered_events)
         get :index, params: { 'filter-by' => 'some_value' }
         expect(assigns(:events)).to eq(filtered_events)
@@ -23,7 +23,7 @@ RSpec.describe EventsController, type: :controller do
 
     context 'when filter-by parameter is not present' do
       it 'assigns all events to @events' do
-        events = double('All Events')
+        events = [instance_double(Event), instance_double(Event)]
         allow(Event).to receive(:all).and_return(events)
         get :index
         expect(assigns(:events)).to eq(events)
@@ -33,7 +33,7 @@ RSpec.describe EventsController, type: :controller do
 
   describe '#show' do
     it 'assigns the requested event to @event' do
-      event = double('Event', id: 1)
+      event = instance_double(Event, id: 1)
       allow(Event).to receive(:find).with('1').and_return(event)
       get :show, params: { id: 1 }
       expect(assigns(:event)).to eq(event)
