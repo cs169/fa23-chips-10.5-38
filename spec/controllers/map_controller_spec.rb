@@ -7,7 +7,7 @@ require 'rails_helper'
 RSpec.describe MapController, type: :controller do
   describe '#index' do
     it 'assigns all states to @states and indexes them by FIPS code' do
-      states = [double('State', std_fips_code: '01'), double('State', std_fips_code: '02')]
+      states = [instance_double(State, std_fips_code: '01'), instance_double(State, std_fips_code: '02')]
       allow(State).to receive(:all).and_return(states)
 
       get :index
@@ -17,18 +17,25 @@ RSpec.describe MapController, type: :controller do
   end
 
   describe '#state' do
+    let(:state) { instance_double(State, symbol: 'CA') }
+    let(:counties) { [instance_double(County, std_fips_code: '06001', state: state)] }
+    let(:counties_by_fips_code) { { '06001' => counties[0] } }
+
+    before do
+      allow(State).to receive(:find_by).with(symbol: 'CA').and_return(state)
+      allow(state).to receive(:counties).and_return(counties)
+    end
+
     context 'when state is found' do
-      it 'assigns the requested state and county details to @state and @county_details' do
-        state = instance_double(State, symbol: 'CA')
-        counties = [instance_double(County, std_fips_code: '06001', state: state)]
+      before { get :state, params: { state_symbol: 'CA' } }
 
-        allow(State).to receive(:find_by).and_return(state)
-        allow(state).to receive(:counties).and_return(counties)
-        allow(counties).to receive(:index_by).and_return({ '06001' => counties[0] })
-
-        get :state, params: { state_symbol: 'CA' }
+      it 'assigns the requested state to @state' do
         expect(assigns(:state)).to eq(state)
-        expect(assigns(:county_details)).to eq(counties.index_by(&:std_fips_code))
+      end
+
+      it 'assigns county details to @county_details' do
+        allow(counties).to receive(:index_by).and_return(counties_by_fips_code)
+        expect(assigns(:county_details)).to eq(counties_by_fips_code)
       end
     end
 
@@ -44,16 +51,18 @@ RSpec.describe MapController, type: :controller do
   end
 
   describe '#county' do
+    let(:state) { instance_double(State, symbol: 'CA', id: 1) }
+    let(:county) { instance_double(County, std_fips_code: '06001', state: state) }
+
+    before do
+      allow(State).to receive(:find_by).with(symbol: 'CA').and_return(state)
+      allow(County).to receive(:find_by).and_return(county)
+      allow(state).to receive(:counties).and_return([county])
+      allow(county).to receive(:std_fips_code).and_return('06001')
+    end
+
     context 'when state and county are found' do
       it 'assigns the requested state, county, and county details to @state, @county, and @county_details' do
-        state = instance_double(State, symbol: 'CA', id: 1)
-        county = instance_double(County, std_fips_code: '06001', state: state)
-
-        allow(State).to receive(:find_by).and_return(state)
-        allow(County).to receive(:find_by).and_return(county)
-        allow(state).to receive(:counties).and_return([county])
-        allow(county).to receive(:std_fips_code).and_return('06001')
-
         get :county, params: { state_symbol: 'CA', std_fips_code: '06001' }
         expect(assigns(:state)).to eq(state)
         expect(assigns(:county)).to eq(county)

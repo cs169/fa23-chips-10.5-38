@@ -4,5 +4,6 @@
 
 require 'rails_helper'
 
-RSpec.describe Event, type: :model do
-end
+# the below is commented out to pass formatting tests
+# RSpec.describe Event, type: :model do
+# end
