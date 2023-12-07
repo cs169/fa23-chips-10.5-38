@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Run with < rspec spec/controllers/search_controller_spec.rb >
 
 # spec/controllers/search_controller_spec.rb
@@ -10,7 +12,9 @@ RSpec.describe SearchController, type: :controller do
     let(:address) { '123 Main St' }
     let(:representatives) { [instance_double(Representative)] }
     let(:office_double) { double('office', name: 'Some Office', division_id: 'ocdid:some_id') }
-    let(:rep_info_double) { double('result', representatives: representatives, officials: [double('official')], offices: [office_double]) }
+    let(:rep_info_double) do
+      double('result', representatives: representatives, officials: [double('official')], offices: [office_double])
+    end
 
     before do
       allow_any_instance_of(Google::Apis::CivicinfoV2::CivicInfoService).to receive(:representative_info_by_address).and_return(rep_info_double)

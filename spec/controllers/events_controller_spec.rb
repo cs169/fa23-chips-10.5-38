@@ -5,7 +5,6 @@
 require 'rails_helper'
 
 RSpec.describe EventsController, type: :controller do
-
   describe '#index' do
     context 'when filter-by parameter is present' do
       it 'calls filter_events method' do
@@ -40,5 +39,4 @@ RSpec.describe EventsController, type: :controller do
       expect(assigns(:event)).to eq(event)
     end
   end
-  
 end

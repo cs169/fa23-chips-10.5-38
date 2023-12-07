@@ -9,7 +9,7 @@ RSpec.describe MapController, type: :controller do
     it 'assigns all states to @states and indexes them by FIPS code' do
       states = [double('State', std_fips_code: '01'), double('State', std_fips_code: '02')]
       allow(State).to receive(:all).and_return(states)
-      
+
       get :index
       expect(assigns(:states)).to eq(states)
       expect(assigns(:states_by_fips_code)).to eq(states.index_by(&:std_fips_code))
@@ -19,8 +19,8 @@ RSpec.describe MapController, type: :controller do
   describe '#state' do
     context 'when state is found' do
       it 'assigns the requested state and county details to @state and @county_details' do
-        state = instance_double('State', symbol: 'CA')
-        counties = [instance_double('County', std_fips_code: '06001', state: state)]
+        state = instance_double(State, symbol: 'CA')
+        counties = [instance_double(County, std_fips_code: '06001', state: state)]
 
         allow(State).to receive(:find_by).and_return(state)
         allow(state).to receive(:counties).and_return(counties)
@@ -46,8 +46,8 @@ RSpec.describe MapController, type: :controller do
   describe '#county' do
     context 'when state and county are found' do
       it 'assigns the requested state, county, and county details to @state, @county, and @county_details' do
-        state = instance_double('State', symbol: 'CA', id: 1)
-        county = instance_double('County', std_fips_code: '06001', state: state)
+        state = instance_double(State, symbol: 'CA', id: 1)
+        county = instance_double(County, std_fips_code: '06001', state: state)
 
         allow(State).to receive(:find_by).and_return(state)
         allow(County).to receive(:find_by).and_return(county)

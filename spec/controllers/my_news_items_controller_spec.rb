@@ -11,7 +11,8 @@ RSpec.describe MyNewsItemsController, type: :controller do
   describe 'POST #create' do
     context 'with valid parameters' do
       it 'creates a new news item' do
-        news_item_params = { title: 'News Title', description: 'News Description', representative_id: representative.id }
+        news_item_params = { title: 'News Title', description: 'News Description',
+representative_id: representative.id }
         allow(NewsItem).to receive(:new).with(news_item_params).and_return(double(save: true, id: 1))
         post :create, params: { representative_id: representative.id, news_item: news_item_params }
         expect(response).to be_redirect

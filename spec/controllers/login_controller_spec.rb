@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Run with < rspec spec/controllers/login_controller_spec.rb >
 
 require 'rails_helper'

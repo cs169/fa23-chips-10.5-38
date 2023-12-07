@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Run with < rspec spec/controllers/user_controller_spec.rb >
 
 # spec/controllers/user_controller_spec.rb

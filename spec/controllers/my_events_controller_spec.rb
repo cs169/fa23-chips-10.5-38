@@ -12,7 +12,7 @@ RSpec.describe MyEventsController do
     expect(response).to redirect_to(login_path)
   end
 
-  it 'edit' do 
+  it 'edit' do
     get :edit, params: { id: 1 }
     expect(response).to redirect_to(login_path)
   end
@@ -22,12 +22,12 @@ RSpec.describe MyEventsController do
     expect(response).to redirect_to(login_path)
   end
 
-  it 'update' do 
+  it 'update' do
     patch :update, params: { id: 1 }
     expect(response).to redirect_to(login_path)
   end
 
-  it 'destroy' do 
+  it 'destroy' do
     delete :destroy, params: { id: 1 }
     expect(response).to redirect_to(login_path)
   end
