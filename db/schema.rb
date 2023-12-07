@@ -81,4 +81,5 @@ ActiveRecord::Schema.define(version: 2023_12_04_073755) do
     t.datetime "updated_at", null: false
     t.index ["uid", "provider"], name: "index_users_on_uid_provider", unique: true
   end
+
 end
