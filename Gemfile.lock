@@ -527,6 +527,7 @@ DEPENDENCIES
   database_cleaner
   date_validator
   factory_bot
+  faraday
   google-api-client (~> 0.34)
   guard
   guard-cucumber

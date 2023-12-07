@@ -6,6 +6,9 @@
                     %caption Table of Representatives
                     %thead.thead-dark
                         %tr
+                        %td
+                            = link_to 'Finance', campaign_finance_path, class: 'btn btn-info'
+                        %tr
                             %th Name
                             %th Office
                             %th Links
@@ -19,3 +22,4 @@
                                         %i.fas.fa-newspaper
                                         News Articles
                                     = link_to 'Profile', representative_path(rep), class: 'btn btn-info'
+
